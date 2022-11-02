@@ -1,0 +1,138 @@
+{% comment %} {% extends 'base.html' %} {% endcomment %}
+
+{% load static %}
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+        {% comment %} <title>{% block title %}Food Tracker{% endblock %}</title> {% endcomment %}
+        <link rel='icon' type='image/x-icon' href='{% static "images/favicon.ico.png" %}'>
+        
+        <!-- Icons -->
+        <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css' rel='stylesheet'>
+
+        <!-- Fonts -->
+        <link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap' rel='stylesheet'>
+
+        <!-- Bootstrap CSS -->
+        <link href='{% static "css/bootstrap.min.css" %}' rel='stylesheet'>
+
+        <!-- Custom styles -->
+        <link href='{% static "css/styles.css" %}' rel='stylesheet'>
+    </head>
+
+  
+
+  
+
+        {% block script %}
+        <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js'></script>
+        {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} {% block title %}CalorieTracker Login{% endblock %} {% endcomment %}
+
+{% block body %}
+
+
+<nav class='navbar navbar-expand-lg navbar-dark bg-dark'>
+    <div class='container-fluid'>
+        <a class='navbar-brand' href="{% url 'index' %}">
+            <i class="fa fa-burger-soda"></i> CalorieTracker Login
+        </a>
+        <button class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarColor' aria-controls='navbarColor' aria-expanded='false' aria-label='Toggle navigation'>
+            <span class='navbar-toggler-icon'></span>
+        </button>
+    </div>    
+    </nav>
+
+
+
+
+
+<div class='py-4 mt-auto'>
+    <div class='container px-4'>
+        <div class='d-flex justify-content-center'>
+            <h3>Please Login</h3>
+        </div>
+
+        {% if message %}
+            <div>{{ message }}</div>
+        {% endif %}
+
+        <div class='row'>
+            <div class='col-lg-6 offset-lg-3'>
+                <div class='card bg-secondary mb-3'>
+                    <div class='card-body'>
+    
+                        <div class='form-group'>
+
+                            <form action="{% url 'login' %}" method='post'>
+                                {% csrf_token %}
+                                <div class='form-group'>
+                                    <label for='inputUsername' class='form-label mt-4'>
+                                        Username
+                                    </label>
+                                    <input type='text' name='username' class='form-control' id='inputUsername' placeholder='Username' autofocus>
+                                </div>
+
+                                <div class='form-group'>
+                                    <label for='inputPassword1' class='form-label mt-4'>
+                                        Password
+                                    </label>
+                                    <input type='password' name='password' class='form-control' id='inputPassword1' placeholder='Password'>
+                                </div>
+
+                                <div class='form-group mt-4'>
+                                    <button type='submit' class='btn btn-dark'>
+                                        Login
+                                    </button>
+                                </div>
+                            </form>
+
+                            <div class='mt-2'>
+                                Don't have an account? <a href="{% url 'register' %}" type='btn btn-dark' class='btn btn-link'>
+                                    Sign up!
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
