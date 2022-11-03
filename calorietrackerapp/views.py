@@ -160,6 +160,40 @@ def foodlogview(request):
     })
 
 
+def categories(request):
+    return render(request, 'categories.html', {
+        'categories': Food_Cat.objects.all()
+    })
+
+    
+
+def categorydetails(request, category_name):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('login'))
+
+    category = Food_Cat.objects.get(category_name=category_name)
+    foods = Food_Obj.objects.filter(category=category)
+
+    for food in foods:
+        food.image = food.get_images.first()
+    page = request.GET.get('page', 1)
+    paginator = Paginator(foods, 4)
+    try:
+        pages = paginator.page(page)
+    except PageNotAnInteger:
+        pages = paginator.page(1)
+    except EmptyPage:
+        pages = paginator.page(paginator.num_pages)
+
+    return render(request, 'food_category.html', {
+        'categories': Food_Cat.objects.all(),
+        'foods': foods,
+        'foods_count': foods.count(),
+        'pages': pages,
+        'title': category.category_name
+    })
+
+
 @login_required
 def weightlog(request):
     if request.method == 'POST':
@@ -174,6 +208,20 @@ def weightlog(request):
         'categories': Food_Cat.objects.all(),
         'user_weight_log': userweightlog
     })
+
+
+@login_required
+def weightlogdelete(request, weight_id):
+    weight_recorded = UserWeight.objects.filter(id=weight_id) 
+
+    if request.method == 'POST':
+        weight_recorded.delete()
+        return redirect('weight_log')
+    
+    return render(request, 'weight_log_delete.html', {
+        'categories': Food_Cat.objects.all()
+    })
+
 
 @login_required
 def Food_log_mdldelete(request, food_id):
