@@ -33,19 +33,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
         {% comment %} {% block title %}CalorieTracker | Registration {% endblock %} {% endcomment %}
         {% block body %}
 
@@ -61,23 +48,12 @@
             </nav>
 
 
-
-
-
-
-
-
-
 <div class='py-4 mt-auto'>
     <div class='container px-4'>
 
         <div class='d-flex justify-content-center'>
             <h3>Register</h3>
         </div>
-
-        {% if message %}
-            <div>{{ message }}</div>
-        {% endif %}
 
         <div class='row'>
             <div class='col-lg-6 offset-lg-3'>
@@ -92,28 +68,28 @@
                                     <label for='inputUsername' class='form-label mt-4'>
                                         Username
                                     </label>
-                                    <input type='text' name='username' class='form-control' id='inputUsername' placeholder='Enter username' autofocus>
+                                    <input type='text' name='username' class='form-control' id='inputUsername' placeholder='Enter Username' autofocus>
                                 </div>
 
                                 <div class='form-group'>
                                     <label for='inputEmail' class='form-label mt-4'>
                                         Email Address
                                     </label>
-                                    <input type='email' name='email' class='form-control' id='inputEmail' placeholder='Enter email'>
+                                    <input type='email' name='email' class='form-control' id='inputEmail' placeholder='Enter Email'>
                                 </div>
 
                                 <div class='form-group'>
                                     <label for='inputPassword1' class='form-label mt-4'>
                                         Password
                                     </label>
-                                    <input type='password' name='password' class='form-control' id='inputPassword1' placeholder='Enter password'>
+                                    <input type='password' name='password' class='form-control' id='inputPassword1' placeholder='Enter Password'>
                                 </div>
 
                                 <div class='form-group'>
                                     <label for='inputPassword2' class='form-label mt-4'>
                                         Confirm Password
                                     </label>
-                                    <input type='password' name='confirmation' class='form-control' id='inputPassword2' placeholder='Confirm password'>
+                                    <input type='password' name='confirmation' class='form-control' id='inputPassword2' placeholder='Confirm Password'>
                                 </div>
 
                                 <div class='form-group mt-4'>
@@ -129,6 +105,12 @@
                                     Log In here
                                 </a>
                             </div>
+                            {% if message %}
+                            <div class='alert alert-dismissible alert-danger' role='alert'>
+                                <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
+                                {{ message }}
+                            </div>
+                            {% endif %}
 
                         </div>
                     </div>
