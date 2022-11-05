@@ -19,6 +19,10 @@ def login_v(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
+        if username == "" or password == "":
+            return render(request, 'login.html', {
+                'message': 'Username/Password cannot be empty'
+            })
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
@@ -44,6 +48,11 @@ def register(request):
         email = request.POST['email']
         password = request.POST['password']
         confirmation = request.POST['confirmation']
+        if username == "" or email == "" or password == "" or confirmation == "":
+            return render(request, 'register.html', {
+                'message': 'Username/Email/Password fields are Empty',
+                'categories': Food_Cat.objects.all()
+            })
         if password != confirmation:
             return render(request, 'register.html', {
                 'message': 'Passwords must match.',
