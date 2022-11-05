@@ -64,7 +64,7 @@ var myChart = new Chart(ctx, {
             yAxes: [{
                 ticks: {
                     min: 0,
-                    max: 120,
+                    max: 300,
                     maxTicksLimit: 12,
                     padding: 10,
                     callback: function(value, index, values) {

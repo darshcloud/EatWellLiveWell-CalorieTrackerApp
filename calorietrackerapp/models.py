@@ -56,7 +56,7 @@ class Food_log_mdl(models.Model):
 
 class UserWeight(models.Model):
     user_name = models.ForeignKey(User, on_delete=models.CASCADE)
-    user_weight = models.DecimalField(max_digits=7, decimal_places=2)
+    user_weight = models.DecimalField(max_digits=10, decimal_places=2)
     entry_date = models.DateField()
 
     class Meta:
