@@ -70,7 +70,40 @@
             <div class='col-lg-6 offset-lg-3'>
                 <div class='card bg-secondary mb-3'>
                     <div class='card-body'>
+                        <div class='form-group'>
+                            <form action="{% url 'login' %}" method='post'>
+                                {% csrf_token %}
+                                <div class='form-group'>
+                                    <label for='inputUsername' class='form-label mt-4'>
+                                        Username
+                                    </label>
+                                    <input type='text' name='username' class='form-control' id='inputUsername'
+                                           placeholder='Username' autofocus>
+                                </div>
 
+                                <div class='form-group'>
+                                    <label for='inputPassword1' class='form-label mt-4'>
+                                        Password
+                                    </label>
+                                    <input type='password' name='password' class='form-control' id='inputPassword1'
+                                           placeholder='Password'>
+                                </div>
+
+                                <div class='form-group mt-4'>
+                                    <button type='submit' class='btn btn-info'>
+                                        Login
+                                    </button>
+                                </div>
+                            </form>
+
+                            <div class='mt-2'>
+                                Don't have an account? <a href="{% url 'register' %}" type='btn btn-dark'
+                                                          class='btn btn-link'>
+                                Sign up!
+                            </a>
+                            </div>
+                            <a> Authentication Using AWS Cognito</a>
+                            <br></br>
                             <a class="button button1" href="https://auth.calorietracker.net/login?client_id=1r17gdeshkcfv6b8l44u26pbb3&response_type=code&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=http://localhost:8000/login">Login</a>
                             {% comment %} <br></br> {% endcomment %}
                             <a class="button button2" href="https://auth.calorietracker.net/signup?client_id=1r17gdeshkcfv6b8l44u26pbb3&response_type=code&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=http://localhost:8000/login">Sign Up</a>

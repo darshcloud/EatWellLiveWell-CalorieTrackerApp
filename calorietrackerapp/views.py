@@ -22,30 +22,14 @@ def index(request):
     return foodlist(request)
 
 def login_v(request):
-    try:
-        code = request.GET.get('code')
-        # print(code)
-        userData = getTokens(code)
-        # print(userData)
-        context = {'name': userData['name'], 
-                    'email': userData['email'],
-                    'token': userData['token'],
-                    'status': 1,}
-        # print(context)
-        try:
-            user = User.objects.create_user(context['name'], context['email'], context['token'])
-            user.save()
-        except Exception:
-            print("User Create Failed")
-            pass
-        try:
-            user = authenticate(request, username=context['name'], password=context['token'])
-        except Exception:
-            print("user auth failed")
-            pass
-        print(user)
-        response = render(request, 'login.html' , context)
-        response.set_cookie('sessiontoken', userData['id_token'], max_age=60*60*24, httponly=True)
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        if username == "" or password == "":
+            return render(request, 'login.html', {
+                'message': 'Username/Password cannot be empty'
+            })
+        user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
             return HttpResponseRedirect(reverse('food_list'))
@@ -53,17 +37,49 @@ def login_v(request):
             return render(request, 'login.html', {
                 'message': 'Incorrect username/password combination'
             })
-    except Exception as e:
-        token = getSession(request)
-        if token is not None:
-            userData = decode_jwt.lambda_handler({'token':token}, None)
+    else:
+        try:
+            code = request.GET.get('code')
+            # print(code)
+            userData = getTokens(code)
+            # print(userData)
             context = {'name': userData['name'], 
-                    'email': userData['email'],
-                    'status': 1,}
+                        'email': userData['email'],
+                        'token': userData['token'],
+                        'status': 1,}
             # print(context)
-            render(request, 'login.html' , context)
-        print("No code")
-        return render(request, 'login.html', {'status': 0})
+            try:
+                user = User.objects.create_user(context['name'], context['email'], context['token'])
+                user.save()
+            except Exception:
+                print("User Create Failed")
+                pass
+            try:
+                user = authenticate(request, username=context['name'], password=context['token'])
+            except Exception:
+                print("user auth failed")
+                pass
+            print(user)
+            response = render(request, 'login.html' , context)
+            response.set_cookie('sessiontoken', userData['id_token'], max_age=60*60*24, httponly=True)
+            if user is not None:
+                login(request, user)
+                return HttpResponseRedirect(reverse('food_list'))
+            else:
+                return render(request, 'login.html', {
+                    'message': 'Incorrect username/password combination'
+                })
+        except Exception as e:
+            token = getSession(request)
+            if token is not None:
+                userData = decode_jwt.lambda_handler({'token':token}, None)
+                context = {'name': userData['name'], 
+                        'email': userData['email'],
+                        'status': 1,}
+                # print(context)
+                render(request, 'login.html' , context)
+            print("No code")
+            return render(request, 'login.html', {'status': 0})
 
 def logout_v(request):
     logout(request)  
