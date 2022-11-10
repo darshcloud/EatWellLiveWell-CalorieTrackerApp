@@ -154,6 +154,18 @@ def foodadd(request):
             new_food = food_form.save(commit=False)
             new_food.save()
 
+            dynamodb = boto3.resource('dynamodb',region_name='us-east-1')
+            table = dynamodb.Table('fooditems')
+
+            response = table.put_item(
+                Item={
+                    'foodname': new_food.food_name,
+                    'calorie': new_food.calories
+                }
+            )
+
+            print(response)
+
             for food_form in image_form.cleaned_data:
                 if food_form:
                     image = food_form['image']
