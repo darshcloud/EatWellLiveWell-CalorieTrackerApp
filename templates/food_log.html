@@ -35,14 +35,28 @@
                                                         </select>
                                                     </div>
                                                     <div class='col-4'>
-                                                        <button type='submit' class='btn btn-dark'>
+                                                        <button type='submit' class='btn btn-info'>
                                                             Add Food
                                                         </button>
                                                     </div>
                                                 </div>
+                                                <br/>
+                                                <!--<form method = "post" name="suggest" enctype="multipart/form-data">
+                                            
+                                                    {% csrf_token %}
+                                                    {{ suggest_form.suggest_img }}
+                                                    <br/>
+                                                    <button type="submit" class='btn btn-dark' >Upload</button>
+                                                </form> -->
+                                                <br/>
                                             </div>
                                         </form>
                                     </div>
+                                    <form method="POST" name="suggest" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <input type="file" name="document"> 
+                                        <button type="submit" class='btn btn-dark'>Upload</button>
+                                    </form>
 
                                 </div>
                             </div>
@@ -137,7 +151,12 @@
         </div>
 
     </div>
-</div>    
+</div> 
+{% if message %}   
+<script>
+    alert('{{ message }}');
+</script>
+{% endif %}
 {% endblock %}
 
 {% block script %}

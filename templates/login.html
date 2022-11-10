@@ -54,7 +54,7 @@
 <nav class='navbar navbar-expand-lg navbar-dark bg-dark'>
     <div class='container-fluid'>
         <a class='navbar-brand' href="{% url 'index' %}">
-            <i class="fa fa-burger-soda"></i> CalorieTracker Login
+            <i class="fas fa-hamburger"></i> CalorieTracker Login
         </a>
         <button class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarColor'
                 aria-controls='navbarColor' aria-expanded='false' aria-label='Toggle navigation'>
@@ -70,12 +70,14 @@
             <div class='col-lg-6 offset-lg-3'>
                 <div class='card bg-secondary mb-3'>
                     <div class='card-body'>
+
                             <a class="button button1" href="https://cmpe281-project2.auth.us-west-1.amazoncognito.com/login?client_id=18pmb9afs78aolglp18a805sga&response_type=code&scope=phone+email+openid+aws.cognito.signin.user.admin+profile&redirect_uri=http://localhost:8000/login">Login</a>
                             {% comment %} <br></br> {% endcomment %}
                             <a class="button button2" href="https://cmpe281-project2.auth.us-west-1.amazoncognito.com/signup?client_id=18pmb9afs78aolglp18a805sga&response_type=code&scope=phone+email+openid+aws.cognito.signin.user.admin+profile&redirect_uri=http://localhost:8000/login">Sign Up</a>
                             {% comment %} <br></br> {% endcomment %}
                             <a class="button button3" href="https://cmpe281-project2.auth.us-west-1.amazoncognito.com/forgotPassword?client_id=18pmb9afs78aolglp18a805sga&response_type=code&scope=phone+email+openid+aws.cognito.signin.user.admin+profile&redirect_uri=http://localhost:8000/login">Forgot Password</a>
                             {% comment %} <br></br> {% endcomment %}
+
                             {% if message %}
                             <div class='alert alert-dismissible alert-danger' role='alert'>
                                 <button type='button' class='btn-close' data-bs-dismiss='alert'></button>

@@ -26,7 +26,7 @@
             <div class='container-fluid'>
                 {% comment %} <a class='navbar-brand' href="{% url 'index' %}"> {% endcomment %}
                 <a class='navbar-brand' href="{% url 'food_list' %}">
-                    <i class="fa fa-burger-soda"></i> Calorie Tracker
+                    <i class="fas fa-hamburger"></i> Calorie Tracker
                 </a>
                 <button class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarColor' aria-controls='navbarColor' aria-expanded='false' aria-label='Toggle navigation'>
                     <span class='navbar-toggler-icon'></span>
@@ -36,13 +36,13 @@
                     <ul class='navbar-nav me-auto'>
                         <li class='nav-item'>
                             <a class='nav-link' href="{% url 'food_list' %}">
-                                <i class='fas fa-list'></i> Food List
+                                <i class="fas fa-list-ol"></i> Food List
                             </a>
                         </li>
 
                         <li class='nav-item dropdown'>
                             <a class='nav-link dropdown-toggle' data-bs-toggle='dropdown' href='#' role='button' aria-haspopup='true' aria-expanded='false'>
-                                <i class="fa fa-pizza-slice"></i> Food Categories
+                                <i class="fas fa-ice-cream"></i> Food Categories
                             </a>
                             <div class='dropdown-menu'>
                                 {% for category in categories %}
@@ -58,12 +58,12 @@
                         {% if user.is_authenticated %}
                             <li class='nav-item'>
                                 <a class='nav-link' href="{% url 'food_add' %}">
-                                    <i class='far fa-plus-square'></i> Add Food Item
+                                    <i class="fas fa-plus-circle"></i> Add Food Item
                                 </a>
                             </li>
                             <li class='nav-item'>
                                 <a class='nav-link' href="{% url 'food_log' %}">
-                                    <i class='fas fa-utensils'></i> Food Log
+                                    <i class="fas fa-utensil-spoon"></i> Food Log
                                 </a>
                             </li>
                         {% endif %}

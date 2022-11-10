@@ -13,11 +13,11 @@
         {% for food in pages %}
             <div class='col-sm-12 col-md-12 col-lg-4 col-xl-3 d-flex align-items-stretch'>
                 <div class='card bg-secondary mb-3'>
-
                     <!-- Food image -->
+                    
                     <a href='#'>
                         <img 
-                            src="{{ food.image.image.url|default:'../../static/images/no_image.png' }}" 
+                            src="https://images.calorietracker.net/{{ food.image.image.name  |default:'../../static/images/no_image.png' }}" 
                             class='img-fluid'
                             alt='food image'
                         >
@@ -62,11 +62,11 @@
                 <ul class='pagination'>
                     {% if pages.has_previous %}
                         <li class='page-item'>
-                            <a class='page-link' href='?page={{ pages.previous_page_number }}'>&laquo;</a>
+                            <a class='page-link' href='?page={{ pages.previous_page_number }}'>Previous</a>
                         </li>
                     {% else %}
                         <li class='page-item disabled'>
-                            <a class='page-link' href='#'>&laquo;</a>
+                            <a class='page-link' href='#'>Previous</a>
                         </li>
                     {% endif %}
                     {% for i in pages.paginator.page_range %}
@@ -82,11 +82,11 @@
                     {% endfor %}
                     {% if pages.has_next %}
                         <li class='page-item'>
-                            <a class='page-link' href='?page={{ pages.next_page_number }}'>&raquo;</a>
+                            <a class='page-link' href='?page={{ pages.next_page_number }}'>Next</a>
                         </li>
                     {% else %}
                         <li class='page-item disabled'>
-                            <a class='page-link' href='#'>&raquo;</a>
+                            <a class='page-link' href='#'>Next</a>
                         </li>
                     {% endif %}
                 </ul>

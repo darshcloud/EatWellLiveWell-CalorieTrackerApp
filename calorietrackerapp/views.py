@@ -11,6 +11,8 @@ from django.shortcuts import render
 from decouple import config
 import base64
 import requests
+import boto3
+from difflib import SequenceMatcher
 
 from .models import User, Food_Obj, Food_Cat, Food_log_mdl, Image, UserWeight
 from .forms import FoodForm, ImageForm
@@ -176,21 +178,47 @@ def fooddetails(request, food_id):
 
 @login_required
 def foodlogview(request):
+    message = ''
     if request.method == 'POST':
-        foods = Food_Obj.objects.all()
-        food = request.POST['food_consumed']
-        food_consumed = Food_Obj.objects.get(food_name=food)
-        user = request.user
-        food_log = Food_log_mdl(user=user, food_consumed=food_consumed)
-        food_log.save()
-    else:
-        foods = Food_Obj.objects.all()
+        request_file = request.FILES['document'] if 'document' in request.FILES else None
+        if request_file:
+            client=boto3.client('rekognition')
+            response = client.detect_labels(Image={'Bytes': request_file.read()})
+            foods = Food_Obj.objects.all()
+            done = False
+            for label in response['Labels']:
+                name = label['Name']
+                for food in foods:
+                    if done:
+                        break
+                    s = SequenceMatcher(None, food.food_name, name)
+                    if s.ratio() > 0.75 and Food_Obj.objects.filter(food_name=food.food_name).exists():
+                        print(food)
+                        user = request.user
+                        food_log = Food_log_mdl(user=user, food_consumed=food)
+                        food_log.save()
+                        done = True
+                        message = "successfully added " + food.food_name
+                if done:
+                    break
+
+            if not done:
+                message = 'no match found for the image you have inserted. please use the drop down instead'
+
+        else:   
+            food = request.POST['food_consumed']
+            food_consumed = Food_Obj.objects.get(food_name=food)
+            user = request.user
+            food_log = Food_log_mdl(user=user, food_consumed=food_consumed)
+            food_log.save()
+    foods = Food_Obj.objects.all()
     user_food_log = Food_log_mdl.objects.filter(user=request.user)
 
     return render(request, 'food_log.html', {
         'categories': Food_Cat.objects.all(),
         'foods': foods,
-        'user_food_log': user_food_log
+        'user_food_log': user_food_log,
+        'message': message,
     })
 
 

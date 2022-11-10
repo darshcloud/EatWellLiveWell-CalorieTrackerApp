@@ -8,7 +8,7 @@
 <div class='py-4 mt-auto'>
     <div class='container-fluid px-4'>
         {% comment %} <a href="{% url 'index' %}" class='btn btn-outline-primary my-3'>Go Back</a> {% endcomment %}
-        <a href="{% url 'food_list' %}" class='btn btn-outline-success my-3'>Go Back</a>
+        <a href="{% url 'food_list' %}" class='btn btn-outline-info my-3'>Go Back</a>
 
         <h3>{{ food.food_name }}</h3>
         <h5>Category: {{ food.category }}</h5>
@@ -20,7 +20,7 @@
                     <!-- Food image -->
                     <a href='#'>
                         <img 
-                            src="{{ image.image.url|default:'../../static/images/no_image.png' }}" 
+                        src="https://images.calorietracker.net/{{ image.image.name  |default:'../../static/images/no_image.png' }}"  
                             class='img-fluid'
                             alt='food image'
                         >
