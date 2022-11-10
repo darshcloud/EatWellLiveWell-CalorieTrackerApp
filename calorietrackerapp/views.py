@@ -36,11 +36,14 @@ def login_v(request):
             user = User.objects.create_user(context['name'], context['email'], context['token'])
             user.save()
         except Exception:
+            print("User Create Failed")
             pass
         try:
             user = authenticate(request, username=context['name'], password=context['token'])
         except Exception:
+            print("user auth failed")
             pass
+        print(user)
         response = render(request, 'login.html' , context)
         response.set_cookie('sessiontoken', userData['id_token'], max_age=60*60*24, httponly=True)
         if user is not None:
@@ -300,9 +303,7 @@ def getTokens(code):
     REDIRECT_URI = config('REDIRECT_URI')
     CLIENT_ID = config('CLIENT_ID') 
     CLIENT_SECRET = config('CLIENT_SECRET')
-
     encodeData = base64.b64encode(bytes(f"{CLIENT_ID}:{CLIENT_SECRET}", "ISO_8859-1")).decode("ascii")
-    # print(encodeData)
     headers = {
         'Content-Type': 'application/x-www-form-urlencoded',
         'Authorization': f'Basic {encodeData}'
