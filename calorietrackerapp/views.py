@@ -6,6 +6,11 @@ from django.db import IntegrityError
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
+from . import decode_jwt
+from django.shortcuts import render
+from decouple import config
+import base64
+import requests
 import boto3
 from difflib import SequenceMatcher
 
@@ -15,7 +20,6 @@ from .forms import FoodForm, ImageForm
 
 def index(request):
     return foodlist(request)
-
 
 def login_v(request):
     if request.method == 'POST':
@@ -34,14 +38,54 @@ def login_v(request):
                 'message': 'Incorrect username/password combination'
             })
     else:
-        return render(request, 'login.html',  {
-        })
-
+        try:
+            code = request.GET.get('code')
+            # print(code)
+            userData = getTokens(code)
+            # print(userData)
+            context = {'name': userData['name'], 
+                        'email': userData['email'],
+                        'token': userData['token'],
+                        'status': 1,}
+            # print(context)
+            try:
+                user = User.objects.create_user(context['name'], context['email'], context['token'])
+                user.save()
+            except Exception:
+                print("User Create Failed")
+                pass
+            try:
+                user = authenticate(request, username=context['name'], password=context['token'])
+            except Exception:
+                print("user auth failed")
+                pass
+            print(user)
+            response = render(request, 'login.html' , context)
+            response.set_cookie('sessiontoken', userData['id_token'], max_age=60*60*24, httponly=True)
+            if user is not None:
+                login(request, user)
+                return HttpResponseRedirect(reverse('food_list'))
+            else:
+                return render(request, 'login.html', {
+                    'message': 'Incorrect username/password combination'
+                })
+        except Exception as e:
+            token = getSession(request)
+            if token is not None:
+                userData = decode_jwt.lambda_handler({'token':token}, None)
+                context = {'name': userData['name'], 
+                        'email': userData['email'],
+                        'status': 1,}
+                # print(context)
+                render(request, 'login.html' , context)
+            print("No code")
+            return render(request, 'login.html', {'status': 0})
 
 def logout_v(request):
-    logout(request)
+    logout(request)  
+    response =  render(request, 'login.html', {'status': 0}) 
+    response.delete_cookie('sessiontoken')
     return HttpResponseRedirect(reverse('login'))
-
 
 
 def register(request):
@@ -270,10 +314,40 @@ def Food_log_mdldelete(request, food_id):
         'categories': Food_Cat.objects.all()
     })
 
+def getTokens(code):
+    TOKEN_ENDPOINT = config('TOKEN_ENDPOINT')
+    REDIRECT_URI = config('REDIRECT_URI')
+    CLIENT_ID = config('CLIENT_ID') 
+    CLIENT_SECRET = config('CLIENT_SECRET')
+    encodeData = base64.b64encode(bytes(f"{CLIENT_ID}:{CLIENT_SECRET}", "ISO_8859-1")).decode("ascii")
+    headers = {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': f'Basic {encodeData}'
+    }
 
-    
+    body = {
+        'grant_type': 'authorization_code',
+        'client_id': CLIENT_ID,
+        'code': code,
+        'redirect_uri': REDIRECT_URI,
+    }
+    # print(body)
+    response = requests.post(TOKEN_ENDPOINT, data=body, headers=headers)
+    # print("response", response)
+    id_token = response.json()['id_token']
+    userData = decode_jwt.lambda_handler({'token':id_token}, None)
+    if not userData:
+        return False 
+    user = {
+        'id_token': id_token,
+        'name': userData['cognito:username'],
+        'email': userData['email'],
+        'token': userData['sub']
+    }
+    return user
 
-        
-
-
-
+def getSession(request):
+    try:
+        response = request.COOKIES["sessiontoken"]
+    except:
+        return None
