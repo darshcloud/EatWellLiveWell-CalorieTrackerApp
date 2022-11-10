@@ -65,7 +65,7 @@ def lambda_handler(event, context):
         print('Token was not issued for this audience')
         return False
     # now we can use the claims
-    print(claims)
+    # print(claims)
     return claims
         
 # the following is useful to make this script executable in both

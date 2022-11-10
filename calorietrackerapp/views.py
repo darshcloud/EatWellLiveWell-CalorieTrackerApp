@@ -22,14 +22,14 @@ def index(request):
 def login_v(request):
     try:
         code = request.GET.get('code')
-        print(code)
+        # print(code)
         userData = getTokens(code)
-        print(userData)
+        # print(userData)
         context = {'name': userData['name'], 
                     'email': userData['email'],
                     'token': userData['token'],
                     'status': 1,}
-        print(context)
+        # print(context)
         try:
             user = User.objects.create_user(context['name'], context['email'], context['token'])
             user.save()
@@ -55,9 +55,8 @@ def login_v(request):
             context = {'name': userData['name'], 
                     'email': userData['email'],
                     'status': 1,}
-            print(context)
+            # print(context)
             render(request, 'login.html' , context)
-
         print("No code")
         return render(request, 'login.html', {'status': 0})
 
@@ -287,7 +286,7 @@ def getTokens(code):
         'code': code,
         'redirect_uri': REDIRECT_URI,
     }
-    print(body)
+    # print(body)
     response = requests.post(TOKEN_ENDPOINT, data=body, headers=headers)
     # print("response", response)
     id_token = response.json()['id_token']
