@@ -71,9 +71,10 @@ DATABASES = {
         'USER': config('DATABASE_USER'),
         'PASSWORD': config('DATABASE_PASS'),
         'HOST': config('DATABASE_HOST'),
-        'PORT': '', # leave blank so the default port is selected
+        'PORT': '5432', 
     }
 }
+
 
 AUTH_USER_MODEL = 'calorietrackerapp.User'
 
@@ -131,7 +132,7 @@ AWS_SECRET_ACCESS_KEY=''
 AWS_S3_ACCESS_KEY_ID =''
 AWS_S3_SECRET_ACCESS_KEY =''
 AWS_STORAGE_BUCKET_NAME='aura-bucket-9'
-AWS_QUERYSTRING_AUTH= False
+
 
 
 # Default primary key field type
