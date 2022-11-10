@@ -19,21 +19,35 @@ from .forms import FoodForm, ImageForm
 def index(request):
     return foodlist(request)
 
-def index1(request):
-    # print("I'm in!")
+def login_v(request):
     try:
         code = request.GET.get('code')
-        # print(code)
+        print(code)
         userData = getTokens(code)
         print(userData)
         context = {'name': userData['name'], 
                     'email': userData['email'],
+                    'token': userData['token'],
                     'status': 1,}
         print(context)
-        response = render(request, 'core/index.html' , context)
+        try:
+            user = User.objects.create_user(context['name'], context['email'], context['token'])
+            user.save()
+        except Exception:
+            pass
+        try:
+            user = authenticate(request, username=context['name'], password=context['token'])
+        except Exception:
+            pass
+        response = render(request, 'login.html' , context)
         response.set_cookie('sessiontoken', userData['id_token'], max_age=60*60*24, httponly=True)
-
-        return response
+        if user is not None:
+            login(request, user)
+            return HttpResponseRedirect(reverse('food_list'))
+        else:
+            return render(request, 'login.html', {
+                'message': 'Incorrect username/password combination'
+            })
     except Exception as e:
         token = getSession(request)
         if token is not None:
@@ -42,41 +56,16 @@ def index1(request):
                     'email': userData['email'],
                     'status': 1,}
             print(context)
-            render(request, 'core/index.html' , context)
+            render(request, 'login.html' , context)
 
         print("No code")
-        return render(request, 'core/index.html', {'status': 0})
-
-
-def login_v(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        if username == "" or password == "":
-            return render(request, 'login.html', {
-                'message': 'Username/Password cannot be empty'
-            })
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return HttpResponseRedirect(reverse('food_list'))
-        else:
-            return render(request, 'login.html', {
-                'message': 'Incorrect username/password combination'
-            })
-    else:
-        return render(request, 'login.html',  {
-        })
-
+        return render(request, 'login.html', {'status': 0})
 
 def logout_v(request):
-    logout(request)
-    return HttpResponseRedirect(reverse('login'))
-
-def signout(request):  
-    response =  render(request, 'core/index.html', {'status': 0}) 
+    logout(request)  
+    response =  render(request, 'login.html', {'status': 0}) 
     response.delete_cookie('sessiontoken')
-    return response
+    return HttpResponseRedirect(reverse('login'))
 
 
 def register(request):
@@ -278,6 +267,7 @@ def Food_log_mdldelete(request, food_id):
     return render(request, 'food_log_delete.html', {
         'categories': Food_Cat.objects.all()
     })
+
 def getTokens(code):
     TOKEN_ENDPOINT = config('TOKEN_ENDPOINT')
     REDIRECT_URI = config('REDIRECT_URI')
@@ -297,23 +287,20 @@ def getTokens(code):
         'code': code,
         'redirect_uri': REDIRECT_URI,
     }
-    # print(body)
+    print(body)
     response = requests.post(TOKEN_ENDPOINT, data=body, headers=headers)
     # print("response", response)
     id_token = response.json()['id_token']
-    # print("id_token", id_token)
     userData = decode_jwt.lambda_handler({'token':id_token}, None)
-    # print("userData", userData)
     if not userData:
         return False 
     user = {
         'id_token': id_token,
         'name': userData['cognito:username'],
-        'email': userData['email']
+        'email': userData['email'],
+        'token': userData['sub']
     }
-    # print(user)
     return user
-
 
 def getSession(request):
     try:
