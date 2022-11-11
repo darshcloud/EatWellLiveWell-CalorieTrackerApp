@@ -122,9 +122,6 @@
                                                     <td class='col-md-4'>{{ weight_record.user_weight }}</td>
                                                     <td class='col-md-4'>{{ weight_record.entry_date|date:'Y-m-d' }}</td>
                                                     <td class='col-md-4'>
-                                                        <a class='btn btn-success' href="#" style='margin-right:2px;'>
-                                                        <i class='fas fa-edit'></i>
-                                                    </a>
                                                     <a class='btn btn-danger' href="{% url 'weight_log_delete' weight_record.id %}">
                                                         <i class='fas fa-trash-alt'></i>
                                                     </a>
