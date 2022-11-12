@@ -75,6 +75,12 @@ DATABASES = {
     }
 }
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': config('ELASTICACHE_HOST'),
+    }
+}
 
 AUTH_USER_MODEL = 'calorietrackerapp.User'
 
