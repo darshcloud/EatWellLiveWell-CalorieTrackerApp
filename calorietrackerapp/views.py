@@ -12,6 +12,7 @@ from decouple import config
 import base64
 import requests
 import boto3
+from calorietrackerprj import settings
 from difflib import SequenceMatcher
 
 from .models import User, Food_Obj, Food_Cat, Food_log_mdl, Image, UserWeight
@@ -153,8 +154,10 @@ def foodadd(request):
         if food_form.is_valid() and image_form.is_valid():
             new_food = food_form.save(commit=False)
             new_food.save()
+            aws_access_key_id=settings.AWS_ACCESS_KEY_ID
+            aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY
 
-            dynamodb = boto3.resource('dynamodb',region_name='us-east-1')
+            dynamodb = boto3.resource('dynamodb',region_name='us-east-1',aws_access_key_id=aws_access_key_id , aws_secret_access_key=aws_secret_access_key )
             table = dynamodb.Table('fooditems')
 
             response = table.put_item(
@@ -213,7 +216,9 @@ def foodlogview(request):
     if request.method == 'POST':
         request_file = request.FILES['document'] if 'document' in request.FILES else None
         if request_file:
-            client=boto3.client('rekognition')
+            aws_access_key_id=settings.AWS_ACCESS_KEY_ID
+            aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY
+            client=boto3.client('rekognition',region_name=settings.REGION_NAME,aws_access_key_id=aws_access_key_id,aws_secret_access_key=aws_secret_access_key )
             response = client.detect_labels(Image={'Bytes': request_file.read()})
             foods = Food_Obj.objects.all()
             done = False
