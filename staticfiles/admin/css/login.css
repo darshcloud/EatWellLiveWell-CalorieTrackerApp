@@ -28,8 +28,8 @@
     border: 1px solid var(--hairline-color);
     border-radius: 4px;
     overflow: hidden;
-    width: 18em;
-    min-width: 200px;
+    width: 28em;
+    min-width: 300px;
     margin: 100px auto;
     height: auto;
 }
