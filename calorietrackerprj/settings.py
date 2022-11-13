@@ -8,9 +8,22 @@ SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = config('DEBUG')
 
+AWS_ACCESS_KEY_ID = config('AWSAccessKeyId')
+
+AWS_SECRET_ACCESS_KEY = config('AWSSecretKey')
+
+REGION_NAME = config('REGION_NAME')
+
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
+    '0.0.0.0',
+    '3.92.234.28',
+    'calorietracker.net',
+    '172.31.86.101',
+    '172.31.86.101:8000',
+    '0.0.0.0:8000',
+    'calorietrackerLB-1735369329.us-east-1.elb.amazonaws.com'
 ]
 
 
@@ -37,6 +50,8 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.cache.UpdateCacheMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
@@ -81,6 +96,12 @@ CACHES = {
         'LOCATION': config('ELASTICACHE_HOST'),
     }
 }
+
+
+
+
+
+
 
 AUTH_USER_MODEL = 'calorietrackerapp.User'
 
@@ -133,10 +154,10 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_FILE_STORAGE='storages.backends.s3boto3.S3Boto3Storage'
-AWS_ACCESS_KEY=''
-AWS_SECRET_ACCESS_KEY=''
-AWS_S3_ACCESS_KEY_ID =''
-AWS_S3_SECRET_ACCESS_KEY =''
+#AWS_ACCESS_KEY=''
+#AWS_SECRET_ACCESS_KEY=''
+#AWS_S3_ACCESS_KEY_ID =''
+#AWS_S3_SECRET_ACCESS_KEY =''
 AWS_STORAGE_BUCKET_NAME='aura-bucket-9'
 
 
