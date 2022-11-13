@@ -18,7 +18,7 @@ RUN pip install --upgrade pip
 
 # copy whole project to your docker home directory. 
 COPY . $DockerHOME  
-# run this command to install all dependencies  
+# run this command to install all dependencigit symbolic-ref --short -q HEADes  
 RUN pip install -r requirements.txt  
 # port where the Django app runs  
 EXPOSE 8000  
