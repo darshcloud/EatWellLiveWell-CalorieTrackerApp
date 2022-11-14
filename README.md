@@ -1,6 +1,6 @@
 # Introduction
 
-* Cloud Project- 2 : EatWellLiveWell-Calorietracker Application [https://caorietracker.net]
+* Cloud Project- 2 : EatWellLiveWell-Calorietracker Application [https://calorietracker.net]
 
 * University Name : http://www.sjsu.edu/
 
@@ -40,4 +40,4 @@
 
 ## Instructions to run project locally
 
-## App screenshots
+## Sample Demo screenshots
