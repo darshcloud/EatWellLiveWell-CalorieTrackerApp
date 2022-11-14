@@ -121,3 +121,7 @@ python manage.py runserver
 ```
 
 ## Sample Demo screenshots
+
+![](screenshots/cognito_login.png)
+![](screenshots/cognito_signup.png)
+![](screenshots/login_page.png)
