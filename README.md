@@ -1,8 +1,43 @@
-### EatWellLiveWell-CalorieTrackerApp
+# Introduction
 
-Team Name: CloudBloom<br/><br/>
-Team Members:<br/>
-Sirisha Polisetty<br/>
-Bhavya Hegde<br/>
-Darshini Venkatesha Murthy Nag<br/>
-Blessy Dickson Daniel Moses<br/> 
+* Cloud Project- 2 : 
+
+* University Name : http://www.sjsu.edu/
+
+* Course : Cloud Technologies- CMPE281
+
+* Professor : [Sanjay Garje](https://www.linkedin.com/in/sanjaygarje/)
+
+* Students : 
+
+<hr>
+
+# Problem statement
+
+## User Features:
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+
+## Admin Features:
+
+
+## Tools and Technologies used:
+  * Frontend: 
+  * Backend:
+  * AWS Components:
+  * Other tools: 
+  
+  
+## Architecture Diagram
+
+## AWS components
+
+## Instructions to run project locally
+
+## App screenshots
