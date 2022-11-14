@@ -87,10 +87,13 @@ jobs:
         aws s3 cp calorietracker.tar.gz s3://calorietracker283/calorietracker-$DATE.tar.gz
         aws s3 cp calorietracker.tar.gz s3://calorietracker283/calorietracker.tar.gz
   
-  push_to_registry:
+  push_to_docker:
     needs: deploy
     runs-on: ubuntu-latest
-
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: ['3.8']
     if: github.ref == 'refs/heads/main'
     steps:
       - name: Set up QEMU
