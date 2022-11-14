@@ -83,6 +83,25 @@ pip install -r requirements.txt
 ```
 touch .env
 ```
+* We need to add below details in env
+```
+SECRET_KEY=''
+DEBUG=True
+DATABASE_NAME=''
+DATABASE_USER=''
+DATABASE_PASS=''
+DATABASE_HOST=''
+COGNITO_REGION_NAME=''
+USER_POOL_ID=''
+CLIENT_ID=''
+CLIENT_SECRET=''
+TOKEN_ENDPOINT=''
+REDIRECT_URI=''
+ELASTICACHE_HOST=''
+AWSAccessKeyId=''
+AWSSecretKey=''
+REGION_NAME=''
+```
 
 ## Run migrations
 ```
