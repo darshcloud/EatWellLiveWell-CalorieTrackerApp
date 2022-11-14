@@ -9,15 +9,14 @@
 * Professor : [Sanjay Garje](https://www.linkedin.com/in/sanjaygarje/)
 
 * Students : 
-Team Name: CloudBloom<br/> <br/>
+Team Name: Cloud Bloom<br/> <br/>
 Team Members:
 * [sirisha polisetty](https://www.linkedin.com/in/sirishapolisetty/) <br/>
 * [Bhavya Hegde](https://www.linkedin.com/in/bhavya-hegde/) <br/>
 * [Darshini Venkatesha Murthy Nag](https://www.linkedin.com/in/darshini-venkatesha-murthy-nag-90052756/) <br/>
 * [Blessy Dickson Daniel Moses](https://www.linkedin.com/in/blessy-dickson/) <br/>
-<hr>
 
-# Problem statement
+## Problem statement
 
 ## User Features:
 * 
@@ -36,24 +35,31 @@ Team Members:
 
 
 ## Tools and Technologies used:
-  * Frontend: HTML,Javascript,Bootstrap,ChartJs
-  * Backend:Python Django framework
+  * Frontend: HTML, Javascript, Bootstrap, ChartJs
+  * Backend: Python Django framework
   * Other tools: GitHub actions for CI/CD,Visual studio code/any editor,Docker.
   
   
 ## Architecture Diagram
 
 ## AWS components
-* RDS: PostgreSQL is used as the database for the application to store all the user and food details.<br/>
-* ElastiCache: Memcache is used to render models  to the application quickly by caching responses from RDS.<br/>
-* Redshift ML: A redshift cluster has been created to import data from the database and then the model is created by running a K-means clustering algorithm.The clusters that are created can be used to provide targeted experiences for the various clusters of users.<br/>
-* SageMaker: Redshift ML uses sagemaker internally to create training models and run the in-built machine learning algorithms.<br/>
-* Cognito:Aws Cognito is used to manage user authentications for calorie tracker.<br/>
-* Route53:Route53 Setup done by adding a A Record to the domain for the alias of cloud front distribution created by Custom Domain Name setup of aws Cognito.<br/>
-* AWS Certificate Manager: AWS Certificate Manager has been created and validated to allow https traffic to auth flow.<br/>
+* Amazon RDS: <br/>
+  PostgreSQL is used as the database for the application to store all the user and food details.<br/>
+* Amazon ElastiCache: <br/>
+  Memcache is used to render models  to the application quickly by caching responses from RDS.<br/>
+* Amazon Redshift ML: <br/>
+  A redshift cluster has been created to import data from the database and then the model is created by running a K-means clustering algorithm.The clusters that are    created can be used to provide targeted experiences for the various clusters of users.<br/>
+* Amazon SageMaker: <br/>
+  Redshift ML uses sagemaker internally to create training models and run the in-built machine learning algorithms.<br/>
+* Amazon Cognito: <br/>
+  Aws Cognito is used to manage user authentications for calorie tracker.<br/>
+* Amazon Route53: <br/>
+  Route53 Setup done by adding a A Record to the domain for the alias of cloud front distribution created by Custom Domain Name setup of aws Cognito.<br/>
+* AWS Certificate Manager: <br/>
+  AWS Certificate Manager has been created and validated to allow https traffic to auth flow.<br/>
 
-### CI/CD Pipeline
-* github workflows, Amazon S3, ubuntu  crontab, and docker for CI/CD of this project.
+## CI/CD Pipeline
+* GitHub workflows, Amazon S3, Ubuntu  crontab, and Docker for CI/CD of this project.
 
 ## Instructions to run project locally
 
