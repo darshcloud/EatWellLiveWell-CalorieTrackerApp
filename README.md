@@ -4,7 +4,7 @@ Cloud Project - 2 : EatWellLiveWell-Calorietracker Application [https://caloriet
 
 University Name : San Jose State University(https://www.sjsu.edu/)
 
-Course : Cloud Technologies- CMPE281
+Course Name : Cloud Technologies - CMPE281
 
 Professor's Name : [Sanjay Garje](https://www.linkedin.com/in/sanjaygarje/) <br/>
 
@@ -60,13 +60,13 @@ Eat Well Live Well is an application that provides users the features to track d
 * **AWS Certificate Manager** : AWS Certificate Manager has been created and validated to allow https traffic to auth flow.
 * **Amazon S3** : Amazon S3 buckets are used to store application Images, Sagemaker data dump and CI/CD pipeline application data.
 * **S3 Transfer Acceleration** : S3 transfer acceleration is enabled to promote faster file upload to S3 bucket.
-* **Amazon CloudFront** : Amazon Cloudfront is used to render application Images.
+* **Amazon CloudFront** : Amazon CloudFront is used to render application Images.
 * **AWS Lambda** : Lambda function created for application S3 bucket is used to trigger email to admin when images are uploaded to S3 bucket.
-  Lambda function is created for Amazon Lex chatbot, which is used to fetch the calories of the food items from the dynamoDB.
+  Lambda function created for Amazon Lex chatbot is used to fetch the calories of the food items from the dynamoDB.
 * **Amazon Simple Notification Service (SNS)** : SNS topic is created for sending email to admin once images are uploaded to S3 bucket.
 * **Amazon EC2** : Deployed our web application on EC2 using nginx webserver. Gunicorn serves as the web server gateway interface between our application and the nginx server.
 * **Elastic Load Balancer (ALB)** : Used Elastic load balancing to distribute web application traffic to 6 availability zones. This automatically distributes application traffic across multiple targets in one or more availability zones.
-* **Auto Scaling Groups** : Auto scaling group has been configured if the CPU utilization of the webserver crosses 80% it will spawn a new instance <br/>
+* **Auto Scaling Groups** : Auto scaling group has been configured if the CPU utilization of the webserver crosses 80% it will spawn a new instance. <br/>
 * **Amazon CloudWatch** : A monitoring service to keep track of the health and utilization of resources. 
 * **Amazon Lex** : User's can quickly know about calories in a  given food item with the help of a chatbot without logging into the application. 
 * **Amazon DynamoDB** : Food name and calorie details will be stored in dynamoDB which renders the calorie data when an lambda function is triggered to fulfill the lex intent. 
