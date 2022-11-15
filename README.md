@@ -133,7 +133,7 @@ Create a new database admin user:
 ```
 CREATE USER yourusername WITH SUPERUSER PASSWORD 'yourpassword';
 ```
-### To quit psql, run:
+#### To quit psql, run:
 ```
 \q
 ```
@@ -142,7 +142,7 @@ CREATE USER yourusername WITH SUPERUSER PASSWORD 'yourpassword';
 ```
 touch .env
 ```
-* We need to add below details in env
+#### We need to add below details in env
 ```
 SECRET_KEY=''
 DEBUG=True
@@ -175,7 +175,6 @@ python manage.py createsuperuser
 
 #### Run the application
 ```
-
 python manage.py runserver
 ```
 
