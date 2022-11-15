@@ -74,20 +74,16 @@ Eat Well Live Well is an application that provides users the features to track d
 * Amazon Simple Notification Service (SNS)<br/>
   SNS topic is created for sending email to admin once images are uploaded to S3 bucket.<br/>
 * Amazon EC2 <br/>
-  Deployed our web application on EC2 using nginx webserver. Gunicorn serves as the web server gateway interface between our application and the nginx server
-<br/>
+  Deployed our web application on EC2 using nginx webserver. Gunicorn serves as the web server gateway interface between our application and the nginx server<br/>
 * Elastic Load Balancer (ALB)<br/>
   Used Elastic load balancing to distribute web application traffic to 6 availability zones. This automatically distributes application traffic across multiple targets   in one or more availability zones<br/>
 * Auto Scaling Groups <br/><br/>
 * Amazon CloudWatch <br/>
-  A monitoring service to keep track of the health and utilization of resources
- <br/>
+  A monitoring service to keep track of the health and utilization of resources. <br/>
 * Amazon Lex <br/>
-  User's can quickly know about calories in a  given food item with the help of a chatbot without logging into the application. 
-<br/>
+  User's can quickly know about calories in a  given food item with the help of a chatbot without logging into the application. <br/>
 * Amazon DynamoDB <br/>
-   Food name and calorie details will be stored in dynamDB which renders the calorie data when an lambda function is triggered to fulfill the lex intent
-<br/>
+   Food name and calorie details will be stored in dynamDB which renders the calorie data when an lambda function is triggered to fulfill the lex intent <br/>
 * Amazon Rekognition <br/><br/>
 
   
@@ -173,10 +169,15 @@ Deploy django app with https,gunicorn and Nginx : https://realpython.com/django-
 Nginx conf on EC2: https://dzone.com/articles/aws-applications-deployment-basics-setup-nginx
 
 ## Sample Demo screenshots
+#### Login Page 
 ![login](https://user-images.githubusercontent.com/111547793/201795997-9bb6482b-de73-4ae7-bc9f-18fea7e1c9d7.png)
+####  Food List Page
 ![food_list](https://user-images.githubusercontent.com/111547793/201796014-61a10b0c-3a79-4bd8-bc5a-98227f8ae451.png)
+#### Food details page
 ![food_details](https://user-images.githubusercontent.com/111547793/201800340-2843a9b7-1fb3-44e9-88e7-f0a68ac9185c.png)
+#### Food Log page:
 ![Food_Log](https://user-images.githubusercontent.com/111547793/201796036-41f8c50b-af5b-4192-9ef0-adab6235400c.png)
+#### weight Log page:
 ![weight_log](https://user-images.githubusercontent.com/111547793/201800380-2747a809-f360-4145-8890-9ed9412eafcb.png)
 
 
