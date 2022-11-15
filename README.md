@@ -165,8 +165,8 @@ Lex Bot Integration: https://www.kommunicate.io/ <br/>
 Machine learning:<br/>
 https://aws.amazon.com/blogs/machine-learning/k-means-clustering-with-amazon-sagemaker/ <br/>
 https://aws.amazon.com/blogs/big-data/use-unsupervised-training-with-k-means-clustering-in-amazon-redshift-ml/ <br/>
-Deploy django app with https,gunicorn and Nginx : https://realpython.com/django-nginx-gunicorn/
-Nginx conf on EC2: https://dzone.com/articles/aws-applications-deployment-basics-setup-nginx
+Deploy django app with https,gunicorn and Nginx : https://realpython.com/django-nginx-gunicorn/ <br/>
+Nginx conf on EC2: https://dzone.com/articles/aws-applications-deployment-basics-setup-nginx  <br/>
 
 ## Sample Demo screenshots
 #### Login Page 
