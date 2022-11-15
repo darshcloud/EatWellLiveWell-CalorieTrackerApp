@@ -187,3 +187,4 @@ https://aws.amazon.com/blogs/machine-learning/k-means-clustering-with-amazon-sag
 https://aws.amazon.com/blogs/big-data/use-unsupervised-training-with-k-means-clustering-in-amazon-redshift-ml/ <br/>
 Deploy django app with https,gunicorn and Nginx : https://realpython.com/django-nginx-gunicorn/ <br/>
 Nginx conf on EC2: https://dzone.com/articles/aws-applications-deployment-basics-setup-nginx  <br/>
+Gunicorn WSGI service setup: https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-20-04 <br/>
