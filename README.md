@@ -6,8 +6,8 @@ University Name : https://www.sjsu.edu/
 
 Course : Cloud Technologies- CMPE281
 
-Professor's Name : [Sanjay Garje](https://www.linkedin.com/in/sanjaygarje/)
-Team Members:<br/>
+Professor's Name : [Sanjay Garje](https://www.linkedin.com/in/sanjaygarje/) <br/>
+Team Members:
 [Sirisha Polisetty](https://www.linkedin.com/in/sirishapolisetty/) ,
 [Bhavya Hegde](www.linkedin.com/in/bhavya-hegde-145b9b123) ,
 [Darshini Venkatesha Murthy Nag](https://www.linkedin.com/in/darshini-venkatesha-murthy-nag-90052756/) ,
