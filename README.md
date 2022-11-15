@@ -116,6 +116,27 @@ venv\scripts\activate
 ```
 pip install -r requirements.txt
 ```
+#### Set up a PostgreSQL database
+* With PostgreSQL up and running, in a new Terminal window run:
+```
+dropdb --if-exists food
+```
+* Start psql, which is a terminal-based front-end to PostgreSQL, by running the command:
+```
+psql postgres
+```
+### Create a new PostgreSQL database:
+```
+CREATE DATABASE food;
+```
+Create a new database admin user:
+```
+CREATE USER yourusername WITH SUPERUSER PASSWORD 'yourpassword';
+```
+### To quit psql, run:
+```
+\q
+```
 
 #### Set up environment variables
 ```
