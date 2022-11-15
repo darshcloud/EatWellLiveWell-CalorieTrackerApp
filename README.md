@@ -9,10 +9,10 @@ Course : Cloud Technologies- CMPE281
 Professor's Name : [Sanjay Garje](https://www.linkedin.com/in/sanjaygarje/) <br/>
 
 Team Members:
-[Sirisha Polisetty](https://www.linkedin.com/in/sirishapolisetty/) ,
-[Bhavya Hegde](www.linkedin.com/in/bhavya-hegde-145b9b123) ,
-[Darshini Venkatesha Murthy Nag](https://www.linkedin.com/in/darshini-venkatesha-murthy-nag-90052756/) ,
-[Blessy Dickson Daniel Moses](https://www.linkedin.com/in/blessy-dickson-348a31133/) 
+- [Sirisha Polisetty](https://www.linkedin.com/in/sirishapolisetty/)
+- [Bhavya Hegde](www.linkedin.com/in/bhavya-hegde-145b9b123)
+- [Darshini Venkatesha Murthy Nag](https://www.linkedin.com/in/darshini-venkatesha-murthy-nag-90052756/)
+- [Blessy Dickson Daniel Moses](https://www.linkedin.com/in/blessy-dickson-348a31133/) 
 
 ## Problem Statement
 Obesity is a common and serious disease which is raising day by day and needs to be addressed. Keeping a healthy Lifestyle and Good Exercise Regime helps control it.
