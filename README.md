@@ -2,20 +2,25 @@
 
 Cloud Project- 2 : EatWellLiveWell-Calorietracker Application [https://calorietracker.net]
 
-University Name : http://www.sjsu.edu/
+University Name : https://www.sjsu.edu/
 
 Course : Cloud Technologies- CMPE281
 
 Professor's Name : [Sanjay Garje](https://www.linkedin.com/in/sanjaygarje/)
  
-Team Name: Cloud Bloom<br/> <br/>
-Team Members:
+Team Name: Cloud Bloom<br/><br/>
+Team Members:<br/>
 [Sirisha Polisetty](https://www.linkedin.com/in/sirishapolisetty/) <br/>
 [Bhavya Hegde](https://www.linkedin.com/in/bhavya-hegde/) <br/>
 [Darshini Venkatesha Murthy Nag](https://www.linkedin.com/in/darshini-venkatesha-murthy-nag-90052756/) <br/>
 [Blessy Dickson Daniel Moses](https://www.linkedin.com/in/blessy-dickson/) <br/>
 
 ## Problem Statement
+Obesity is a common and serious disease which is raising day by day and needs to be addressed. Keeping a healthy Lifestyle and Good Exercise Regime helps control it.
+In addition to having good exercise regime, one needs to eat a well balanced healthy meal. This brings forward a requirement for a defined method to track a person's diet and calorie intake. We plan to address this by designing a calorie and nutrient tracking application.
+
+## Solution Proposed
+Eat Well Live Well is an application that provides users the features to track daily calorie intake and provide nutritional information on macro nutrients such as fat, carbohydrates, protein for the food item consumed by the user. User’s can also monitor their weight by logging their weights in the application which can be visualized from a graph, and it also provides nutrition facts for a range of food items which empowers the user's to plan their diet and reach their fitness goals. 
 
 ## Application Features
 * Users can register and login using application custom login or through Amazon Cognito
