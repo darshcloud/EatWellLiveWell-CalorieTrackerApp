@@ -83,8 +83,9 @@ Eat Well Live Well is an application that provides users the features to track d
 * Amazon Lex <br/>
   User's can quickly know about calories in a  given food item with the help of a chatbot without logging into the application. <br/>
 * Amazon DynamoDB <br/>
-   Food name and calorie details will be stored in dynamDB which renders the calorie data when an lambda function is triggered to fulfill the lex intent <br/>
-* Amazon Rekognition <br/><br/>
+  Food name and calorie details will be stored in dynamDB which renders the calorie data when an lambda function is triggered to fulfill the lex intent <br/>
+* Amazon Rekognition <br/>
+  Rekognition has been used to detect the food which has been uploaded by the user and if the labels returned  match the labels present in the application then the       food is added automatically to the food log<br/>
 
   
   
@@ -169,15 +170,15 @@ Deploy django app with https,gunicorn and Nginx : https://realpython.com/django-
 Nginx conf on EC2: https://dzone.com/articles/aws-applications-deployment-basics-setup-nginx  <br/>
 
 ## Sample Demo screenshots
-#### Login Page 
+#### Login Page:
 ![login](https://user-images.githubusercontent.com/111547793/201795997-9bb6482b-de73-4ae7-bc9f-18fea7e1c9d7.png)
-####  Food List Page
+####  Food List Page :
 ![food_list](https://user-images.githubusercontent.com/111547793/201796014-61a10b0c-3a79-4bd8-bc5a-98227f8ae451.png)
-#### Food details page
+#### Food details page:
 ![food_details](https://user-images.githubusercontent.com/111547793/201800340-2843a9b7-1fb3-44e9-88e7-f0a68ac9185c.png)
 #### Food Log page:
 ![Food_Log](https://user-images.githubusercontent.com/111547793/201796036-41f8c50b-af5b-4192-9ef0-adab6235400c.png)
-#### weight Log page:
+#### Weight Log page:
 ![weight_log](https://user-images.githubusercontent.com/111547793/201800380-2747a809-f360-4145-8890-9ed9412eafcb.png)
 
 
