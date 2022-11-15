@@ -1,14 +1,14 @@
 # Introduction
 
-Cloud Project- 2 : EatWellLiveWell-Calorietracker Application [https://calorietracker.net]
+Cloud Project - 2 : EatWellLiveWell-Calorietracker Application [https://calorietracker.net]
 
-University Name : https://www.sjsu.edu/
+University Name : San Jose State University(https://www.sjsu.edu/)
 
 Course : Cloud Technologies- CMPE281
 
 Professor's Name : [Sanjay Garje](https://www.linkedin.com/in/sanjaygarje/) <br/>
 
-TA : [Supreetha M A](https://www.linkedin.com/in/supreethama/) <br/>
+ISA : [Supreetha M A](https://www.linkedin.com/in/supreethama/) <br/>
 
 Team Name: Cloud Bloom
 - Team Members:
@@ -53,9 +53,9 @@ Eat Well Live Well is an application that provides users the features to track d
 ## AWS components
 * **Amazon RDS** : PostgreSQL is used as the database for the application to store all the user and food details.
 * **Amazon ElastiCache** : Memcache is used to render models  to the application quickly by caching responses from RDS.
-* **Amazon Redshift ML** : A redshift cluster has been created to import data from the database and then the model is created by running a K-means clustering algorithm.The clusters that are    created can be used to provide targeted experiences for the various clusters of users.
+* **Amazon Redshift ML** : A redshift cluster has been created to import data from the database and then the model is created by running a K-means clustering algorithm.The clusters that are created can be used to provide targeted experiences for the various clusters of users.
 * **Amazon SageMaker** : Redshift ML uses sagemaker internally to create training models and run the in-built machine learning algorithms.
-* **Amazon Cognito** : Aws Cognito is used to manage user authentications for calorie tracker.
+* **Amazon Cognito** : AWS Cognito is used to manage user authentications for calorie tracker.
 * **Amazon Route53** : Route53 Setup done by adding a A Record to the domain for the alias of cloud front distribution created by Custom Domain Name setup of aws Cognito.
 * **AWS Certificate Manager** : AWS Certificate Manager has been created and validated to allow https traffic to auth flow.
 * **Amazon S3** : Amazon S3 buckets are used to store application Images, Sagemaker data dump and CI/CD pipeline application data.
@@ -64,13 +64,13 @@ Eat Well Live Well is an application that provides users the features to track d
 * **AWS Lambda** : Lambda function created for application S3 bucket is used to trigger email to admin when images are uploaded to S3 bucket.
   Lambda function is created for Amazon Lex chatbot, which is used to fetch the calories of the food items from the dynamoDB.
 * **Amazon Simple Notification Service (SNS)** : SNS topic is created for sending email to admin once images are uploaded to S3 bucket.
-* **Amazon EC2** : Deployed our web application on EC2 using nginx webserver. Gunicorn serves as the web server gateway interface between our application and the nginx server
-* **Elastic Load Balancer (ALB)** : Used Elastic load balancing to distribute web application traffic to 6 availability zones. This automatically distributes application traffic across multiple targets   in one or more availability zones
+* **Amazon EC2** : Deployed our web application on EC2 using nginx webserver. Gunicorn serves as the web server gateway interface between our application and the nginx server.
+* **Elastic Load Balancer (ALB)** : Used Elastic load balancing to distribute web application traffic to 6 availability zones. This automatically distributes application traffic across multiple targets in one or more availability zones.
 * **Auto Scaling Groups** : Auto scaling group has been configured if the CPU utilization of the webserver crosses 80% it will spawn a new instance <br/>
 * **Amazon CloudWatch** : A monitoring service to keep track of the health and utilization of resources. 
 * **Amazon Lex** : User's can quickly know about calories in a  given food item with the help of a chatbot without logging into the application. 
-* **Amazon DynamoDB** : Food name and calorie details will be stored in dynamDB which renders the calorie data when an lambda function is triggered to fulfill the lex intent 
-* **Amazon Rekognition** : Rekognition has been used to detect the food which has been uploaded by the user and if the labels returned  match the labels present in the application then the       food is added automatically to the food log
+* **Amazon DynamoDB** : Food name and calorie details will be stored in dynamoDB which renders the calorie data when an lambda function is triggered to fulfill the lex intent. 
+* **Amazon Rekognition** : Rekognition has been used to detect the food which has been uploaded by the user and if the labels returned  match the labels present in the application then the food is added automatically to the food log.
 
   
   
