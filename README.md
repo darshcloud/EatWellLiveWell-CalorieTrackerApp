@@ -10,22 +10,20 @@ Professor's Name : [Sanjay Garje](https://www.linkedin.com/in/sanjaygarje/)
  
 Team Name: Cloud Bloom<br/> <br/>
 Team Members:
-[sirisha polisetty](https://www.linkedin.com/in/sirishapolisetty/) <br/>
+[Sirisha Polisetty](https://www.linkedin.com/in/sirishapolisetty/) <br/>
 [Bhavya Hegde](https://www.linkedin.com/in/bhavya-hegde/) <br/>
 [Darshini Venkatesha Murthy Nag](https://www.linkedin.com/in/darshini-venkatesha-murthy-nag-90052756/) <br/>
 [Blessy Dickson Daniel Moses](https://www.linkedin.com/in/blessy-dickson/) <br/>
 
-## Problem statement
+## Problem Statement
 
-## User Features:
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
+## Application Features
+* Users can register and login using application custom login or through Amazon Cognito
+* On successful Login, users can view list of food items
+* Users can add new food items
+* Users can view macronutrient breakdown for a particular food item
+* Users can add the food they have consumed in a day in the food log to know about the total calories consumed and the macronutrients breakdown. 
+* Users can log their weight and can see their weight history plotted in the form of a graph
 
 ## Admin Features:
 * Admin can add/view new users and add new food categories.
@@ -36,7 +34,7 @@ Team Members:
 ## Tools and Technologies used:
   * Frontend: HTML, Javascript, Bootstrap, ChartJs
   * Backend: Python Django framework
-  * Other tools: GitHub actions for CI/CD,Visual studio code/any editor,Docker.
+  * Other tools: GitHub actions for CI/CD, Visual studio code/any editor, Docker.
   
   
 ## Architecture Diagram
@@ -147,5 +145,8 @@ python manage.py runserver
 ```
 
 ## Sample Demo screenshots
-
+![login](https://user-images.githubusercontent.com/111547793/201795997-9bb6482b-de73-4ae7-bc9f-18fea7e1c9d7.png)
+![food_list](https://user-images.githubusercontent.com/111547793/201796014-61a10b0c-3a79-4bd8-bc5a-98227f8ae451.png)
+![Food_Log](https://user-images.githubusercontent.com/111547793/201796036-41f8c50b-af5b-4192-9ef0-adab6235400c.png)
+ 
 
