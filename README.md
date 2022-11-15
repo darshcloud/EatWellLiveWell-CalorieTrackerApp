@@ -2,7 +2,7 @@
 
 Cloud Project - 2 : EatWellLiveWell-Calorietracker Application [https://calorietracker.net]
 
-University Name : San Jose State University(https://www.sjsu.edu/)
+University Name : [San Jose State University](https://www.sjsu.edu/)
 
 Course Name : Cloud Technologies - CMPE281
 
