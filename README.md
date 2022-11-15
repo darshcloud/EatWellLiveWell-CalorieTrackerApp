@@ -77,7 +77,7 @@ Eat Well Live Well is an application that provides users the features to track d
   Deployed our web application on EC2 using nginx webserver. Gunicorn serves as the web server gateway interface between our application and the nginx server<br/>
 * Elastic Load Balancer (ALB)<br/>
   Used Elastic load balancing to distribute web application traffic to 6 availability zones. This automatically distributes application traffic across multiple targets   in one or more availability zones<br/>
-* Auto Scaling Groups <br/><br/>
+* Auto Scaling Groups <br/>
 * Amazon CloudWatch <br/>
   A monitoring service to keep track of the health and utilization of resources. <br/>
 * Amazon Lex <br/>
