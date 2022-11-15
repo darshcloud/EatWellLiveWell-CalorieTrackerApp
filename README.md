@@ -7,13 +7,11 @@ University Name : https://www.sjsu.edu/
 Course : Cloud Technologies- CMPE281
 
 Professor's Name : [Sanjay Garje](https://www.linkedin.com/in/sanjaygarje/)
- 
-Team Name: Cloud Bloom<br/><br/>
 Team Members:<br/>
-[Sirisha Polisetty](https://www.linkedin.com/in/sirishapolisetty/) <br/>
-[Bhavya Hegde](https://www.linkedin.com/in/bhavya-hegde/) <br/>
-[Darshini Venkatesha Murthy Nag](https://www.linkedin.com/in/darshini-venkatesha-murthy-nag-90052756/) <br/>
-[Blessy Dickson Daniel Moses](https://www.linkedin.com/in/blessy-dickson/) <br/>
+[Sirisha Polisetty](https://www.linkedin.com/in/sirishapolisetty/) ,
+[Bhavya Hegde](www.linkedin.com/in/bhavya-hegde-145b9b123) ,
+[Darshini Venkatesha Murthy Nag](https://www.linkedin.com/in/darshini-venkatesha-murthy-nag-90052756/) ,
+[Blessy Dickson Daniel Moses](https://www.linkedin.com/in/blessy-dickson-348a31133/) 
 
 ## Problem Statement
 Obesity is a common and serious disease which is raising day by day and needs to be addressed. Keeping a healthy Lifestyle and Good Exercise Regime helps control it.
@@ -44,6 +42,10 @@ Eat Well Live Well is an application that provides users the features to track d
   
 ## Architecture Diagram
 
+<img width="744" alt="architecture_diagram_v2" src="https://user-images.githubusercontent.com/85700971/201800930-2d09f29e-7272-4e7d-9ef5-ac4f8846d031.png">
+
+
+
 ## AWS components
 * Amazon RDS <br/>
   PostgreSQL is used as the database for the application to store all the user and food details.<br/>
@@ -70,12 +72,21 @@ Eat Well Live Well is an application that provides users the features to track d
   Lambda function is created for Amazon Lex chatbot, which is used to fetch the calories of the food items from the dynamoDB.<br/>
 * Amazon Simple Notification Service (SNS)<br/>
   SNS topic is created for sending email to admin once images are uploaded to S3 bucket.<br/>
-* Amazon EC2 <br/><br/>
-* Elastic Load Balancer (ALB)<br/><br/>
+* Amazon EC2 <br/>
+  Deployed our web application on EC2 using nginx webserver. Gunicorn serves as the web server gateway interface between our application and the nginx server
+<br/>
+* Elastic Load Balancer (ALB)<br/>
+  Used Elastic load balancing to distribute web application traffic to 6 availability zones. This automatically distributes application traffic across multiple targets   in one or more availability zones<br/>
 * Auto Scaling Groups <br/><br/>
-* Amazon CloudWatch <br/><br/>
-* Amazon Lex <br/><br/>
-* Amazon DynamoDB <br/><br/>
+* Amazon CloudWatch <br/>
+  A monitoring service to keep track of the health and utilization of resources
+ <br/>
+* Amazon Lex <br/>
+  User's can quickly know about calories in a  given food item with the help of a chatbot without logging into the application. 
+<br/>
+* Amazon DynamoDB <br/>
+   Food name and calorie details will be stored in dynamDB which renders the calorie data when an lambda function is triggered to fulfill the lex intent
+<br/>
 * Amazon Rekognition <br/><br/>
 
   
