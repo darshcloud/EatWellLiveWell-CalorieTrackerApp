@@ -46,8 +46,7 @@ Eat Well Live Well is an application that provides users the features to track d
   
 ## Architecture Diagram
 
-<img width="744" alt="architecture_diagram_v2" src="https://user-images.githubusercontent.com/85700971/201800930-2d09f29e-7272-4e7d-9ef5-ac4f8846d031.png">
-
+<img width="722" alt="Final_CalorieTracker_Architecture_Diagram" src="https://user-images.githubusercontent.com/85700971/202118400-04ee50b4-71b0-4604-beef-37b5dbd593d0.png">
 
 
 ## AWS components
