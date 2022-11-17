@@ -163,8 +163,10 @@ python manage.py runserver
 ```
 
 ## Sample Demo screenshots
+#### Chatbot:
+![chatbot](screenshots/chatbot.gif)
 #### Login Page:
-![login](https://user-images.githubusercontent.com/111547793/201795997-9bb6482b-de73-4ae7-bc9f-18fea7e1c9d7.png)
+![login](screenshots/login.gif)
 ####  Food List Page :
 ![food_list](https://user-images.githubusercontent.com/111547793/201796014-61a10b0c-3a79-4bd8-bc5a-98227f8ae451.png)
 #### Food details page:
